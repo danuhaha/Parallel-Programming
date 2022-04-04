@@ -10,6 +10,6 @@ import UIKit
 struct Post {
     var group = Group()
     var date = String()
-    var postText = String()
-    var postImage = UIImage()
+    var postText: String?
+    var postImage: UIImage?
 }

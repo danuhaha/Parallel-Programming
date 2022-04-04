@@ -16,6 +16,7 @@ class NewsCell: UITableViewCell {
 
     @IBOutlet weak var postTextLabel: UILabel!
 
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var postImagevView: UIImageView!
 
     @IBOutlet weak var likeCounterLabel: UILabel!
@@ -54,8 +55,16 @@ class NewsCell: UITableViewCell {
         avatarImageView.image = post.group.avatar
         groupNameLabel.text = post.group.title
         dateLabel.text = post.date
-        postTextLabel.text = post.postText
-        postImagevView.image = post.postImage
+        if post.postText != nil {
+            postTextLabel.text = post.postText
+        } else {
+            postTextLabel.removeFromSuperview()
+        }
+        if post.postImage != nil {
+            postImagevView.image = post.postImage
+        } else {
+            view.removeFromSuperview()
+        }
     }
 
     @IBAction func pressLikeButton(_ sender: Any) {
