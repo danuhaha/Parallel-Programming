@@ -23,7 +23,9 @@ class GalleryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFriendsPhotosInitialResponse()
+        DispatchQueue.main.async {
+            self.getFriendsPhotosInitialResponse()
+        }
 
         collectionView.delegate = self
         collectionView.dataSource = self

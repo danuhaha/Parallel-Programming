@@ -120,7 +120,7 @@ extension ProfileViewController {
 
         AF.request("https://api.vk.com/method/users.get", parameters: [
             "v": "5.131",
-            "fields": "photo_max, status, city,education,bdate",
+            "fields": "photo_max,status,city,education,bdate",
             "access_token": session.token
             ]).responseData { data in
             guard let data = data.value else { return }
@@ -134,12 +134,12 @@ extension ProfileViewController {
     }
 
     func fillPostsArray() {
-        let post1 = Post(group: Group(title: "Danya Gorin", avatar: UIImage(named: "profile")!), date: "2 часа назад", postText: "Вышел новый альбом Eternal Atake от Lil Uzi Vert!", postImage: UIImage(named: "eternalAtake")!)
-        let post2 = Post(group: Group(title: "Danya Gorin", avatar: UIImage(named: "profile")!), date: "5 часов назад", postText: "Новая расцветка Air Jordan 1 от Travis Scott", postImage: UIImage(named: "aj1")!)
-        let post3 = Post(group: Group(title: "Danya Gorin", avatar: UIImage(named: "profile")!), date: "вчера", postText: "Вспомним дебютный альбом Playboi Carti", postImage: UIImage(named: "dielit")!)
-        postsArray.append(post1)
-        postsArray.append(post2)
-        postsArray.append(post3)
+    //    let post1 = Post(group: Group(title: "Danya Gorin", avatar: UIImage(named: "profile")!), date: "2 часа назад", //postText: "Вышел новый альбом Eternal Atake от Lil Uzi Vert!", postImage: UIImage(named: "eternalAtake")!)
+    //    let post2 = Post(group: Group(title: "Danya Gorin", avatar: UIImage(named: "profile")!), date: "5 часов //назад", postText: "Новая расцветка Air Jordan 1 от Travis Scott", postImage: UIImage(named: "aj1")!)
+    //    let post3 = Post(group: Group(title: "Danya Gorin", avatar: UIImage(named: "profile")!), date: "вчера", //postText: "Вспомним дебютный альбом Playboi Carti", postImage: UIImage(named: "dielit")!)
+    //    postsArray.append(post1)
+    //    postsArray.append(post2)
+    //    postsArray.append(post3)
     }
 
 }

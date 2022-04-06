@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
                 URLQueryItem(name: "client_id", value: "8006884"),
                 URLQueryItem(name: "display", value: "mobile"),
                 URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-                URLQueryItem(name: "scope", value: "photos"),
+                URLQueryItem(name: "scope", value: "offline,photos,wall,friends"),
                 URLQueryItem(name: "response_type", value: "token"),
                 URLQueryItem(name: "v", value: "5.131")
             ]

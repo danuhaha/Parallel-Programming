@@ -8,16 +8,15 @@
 import UIKit
 
 class NewsViewController: UIViewController {
-
     @IBOutlet weak var newsTableView: UITableView!
     
-    var posts = [Post]()
+    let session = Session.instance
+    
+    var postsArray = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fillPostsArray()
-        
+        getPostNewsInitialResponse()
         newsTableView.delegate = self
         newsTableView.dataSource = self
         newsTableView.register(UINib(nibName: newsCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsCell)

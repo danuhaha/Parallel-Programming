@@ -9,13 +9,13 @@ import UIKit
 
 extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return postsArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierNewsCell, for: indexPath) as? NewsCell else { return UITableViewCell() }
 
-        cell.configure(post: posts[indexPath.row])
+        cell.configure(post: postsArray[indexPath.row])
 
         return cell
     }

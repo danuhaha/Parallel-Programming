@@ -12,4 +12,9 @@ struct Post {
     var date = String()
     var postText: String?
     var postImage: UIImage?
+    var likeCount: Int
+    var isLiked: Bool
+    var commentCount: Int
+    var repostCount: Int
+    var viewCount: Int
 }

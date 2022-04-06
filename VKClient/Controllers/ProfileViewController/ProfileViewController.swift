@@ -31,11 +31,13 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        getFriendsInitialResponse()
-        getPhotosInitialResponse()
-        getUserInitialResponse()
-        fillPostsArray()
+        DispatchQueue.main.async {
+            self.getFriendsInitialResponse()
+            self.getPhotosInitialResponse()
+            self.getUserInitialResponse()
+            self.fillPostsArray()
+        }
+    
 
         friendsCollectionView.dataSource = self
         friendsCollectionView.delegate = self

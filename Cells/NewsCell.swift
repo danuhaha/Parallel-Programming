@@ -14,12 +14,16 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
 
-    @IBOutlet weak var postTextLabel: UILabel!
+    @IBOutlet weak var postTextLabel: UITextView!
+    
 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var postImagevView: UIImageView!
 
     @IBOutlet weak var likeCounterLabel: UILabel!
+    @IBOutlet weak var commentCounterlabel: UILabel!
+    @IBOutlet weak var repostCounterLabel: UILabel!
+    @IBOutlet weak var viewCounterLabel: UILabel!
 
     var liked = false
     var likeCount = 0
@@ -36,6 +40,7 @@ class NewsCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
+        postTextLabel.isEditable = false
         super.prepareForReuse()
         avatarImageView.image = nil
         groupNameLabel.text = nil
@@ -44,7 +49,11 @@ class NewsCell: UITableViewCell {
         postImagevView.image = nil
         liked = false
         likeImage = UIImage(systemName: "heart")
-        likeCount = 0
+        view.widthAnchor.constraint(equalToConstant: 0).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        view.layoutIfNeeded()
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -52,6 +61,12 @@ class NewsCell: UITableViewCell {
     }
 
     func configure(post: Post) {
+        liked = post.isLiked
+        likeCount = post.likeCount
+        likeCounterLabel.text = "\(post.likeCount)"
+        commentCounterlabel.text = "\(post.commentCount)"
+        repostCounterLabel.text = "\(post.repostCount)"
+        viewCounterLabel.text = "\(post.viewCount)"
         avatarImageView.image = post.group.avatar
         groupNameLabel.text = post.group.title
         dateLabel.text = post.date
@@ -62,8 +77,14 @@ class NewsCell: UITableViewCell {
         }
         if post.postImage != nil {
             postImagevView.image = post.postImage
+            let ratio = post.postImage!.size.width / post.postImage!.size.height
+            view.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: ratio).isActive = true
+            //view.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/1).isActive = true
+            view.layoutIfNeeded()
         } else {
-            view.removeFromSuperview()
+            view.widthAnchor.constraint(equalToConstant: 0).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            view.layoutIfNeeded()
         }
     }
 
