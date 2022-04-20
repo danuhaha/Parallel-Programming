@@ -48,15 +48,15 @@ extension ProfileViewController {
     }
 
     func createUser(_ userInitialResponse: UserInitialResponse) {
-        guard let avatar = getImage(from: userInitialResponse.response.avatar) else { return }
-        let firsNname = userInitialResponse.response.firstName
-        let lastName = userInitialResponse.response.lastName
+        guard let avatar = getImage(from: userInitialResponse.response[0].avatar) else { return }
+        let firsNname = userInitialResponse.response[0].firstName
+        let lastName = userInitialResponse.response[0].lastName
         let name = "\(firsNname) \(lastName)"
-        let status = userInitialResponse.response.status
-        let birthday = userInitialResponse.response.birthday
-        let hometown = userInitialResponse.response.city.title
-        let university = userInitialResponse.response.universityName
-        let faculty = userInitialResponse.response.facultyName
+        let status = userInitialResponse.response[0].status
+        let birthday = userInitialResponse.response[0].birthday
+        let hometown = userInitialResponse.response[0].city.title
+        let university = userInitialResponse.response[0].universityName
+        let faculty = userInitialResponse.response[0].facultyName
         let education = "\(university), \(faculty)"
         
         self.avatarImage.image = avatar
@@ -126,20 +126,85 @@ extension ProfileViewController {
             guard let data = data.value else { return }
 
             do {
-                guard let response = try? JSONDecoder().decode(UserInitialResponse.self, from: data) else { return }
+                let response = try JSONDecoder().decode(UserInitialResponse.self, from: data) 
                 self.createUser(response)
-                
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context) {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
             }
         }
     }
 
-    func fillPostsArray() {
-    //    let post1 = Post(group: Group(title: "Danya Gorin", avatar: UIImage(named: "profile")!), date: "2 часа назад", //postText: "Вышел новый альбом Eternal Atake от Lil Uzi Vert!", postImage: UIImage(named: "eternalAtake")!)
-    //    let post2 = Post(group: Group(title: "Danya Gorin", avatar: UIImage(named: "profile")!), date: "5 часов //назад", postText: "Новая расцветка Air Jordan 1 от Travis Scott", postImage: UIImage(named: "aj1")!)
-    //    let post3 = Post(group: Group(title: "Danya Gorin", avatar: UIImage(named: "profile")!), date: "вчера", //postText: "Вспомним дебютный альбом Playboi Carti", postImage: UIImage(named: "dielit")!)
-    //    postsArray.append(post1)
-    //    postsArray.append(post2)
-    //    postsArray.append(post3)
+    func fillPostsArray(_ wallInitialResponse: WallInitialResponse) {
+
+        let posts = wallInitialResponse.response.items
+
+        var title = self.nameLabel.text
+        var avatar = self.avatarImage.image
+
+        for i in posts {
+
+            var isLiked = true
+            if i.likes.isLiked == 0 {
+                isLiked = false
+            }
+
+            let date = Date(timeIntervalSince1970: TimeInterval(i.date))
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone(abbreviation: "GMT+3")
+            dateFormatter.locale = NSLocale.current
+            dateFormatter.dateFormat = "MMM d, h:mm a"
+            let strDate = dateFormatter.string(from: date)
+
+            if i.attachments == nil || i.attachments![0].photo == nil {
+                self.postsArray.append(Post(group: Group(title: title!, avatar: avatar!), date: strDate, postText: i.text, postImage: nil, likeCount: i.likes.count, isLiked: isLiked, commentCount: i.comments.count, repostCount: i.reposts.count, viewCount: i.views.count))
+            } else {
+                guard let photo = self.getImage(from: i.attachments![0].photo!.sizes[6].url) else { return }
+                self.postsArray.append(Post(group: Group(title: title!, avatar: avatar!), date: strDate, postText: i.text, postImage: photo, likeCount: i.likes.count, isLiked: isLiked, commentCount: i.comments.count, repostCount: i.reposts.count, viewCount: i.views.count))
+
+            }
+        }
+    }
+
+    func getWallInitialResponse() {
+
+        AF.request("https://api.vk.com/method/wall.get", parameters: [
+            "v": "5.131",
+            "filter": "owner",
+            "access_token": session.token
+            ]).responseData { data in
+            guard let data = data.value else { return }
+
+            do {
+                let response = try JSONDecoder().decode(WallInitialResponse.self, from: data)
+                self.fillPostsArray(response)
+                self.postsTableView.reloadData()
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context) {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
+            }
+
+        }
     }
 
 }

@@ -14,6 +14,34 @@ struct PostNewsInitialResponse: Codable {
 
 struct PostNewsResponse: Codable {
     let items: [PostNewsItems]
+    let profiles: [PostProfiles]
+    let groups: [PostGroups]
+}
+
+struct PostProfiles: Codable {
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let avatar: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case avatar = "photo_100"
+    }
+}
+
+struct PostGroups: Codable {
+    let id: Int
+    let name: String
+    let avatar: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case avatar = "photo_200"
+    }
 }
 
 struct PostNewsItems: Codable {

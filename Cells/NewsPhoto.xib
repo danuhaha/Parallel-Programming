@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="298" id="KGk-i7-Jjw" customClass="NewsPhoto" customModule="VKClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="298"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="298"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBB-os-nsO">
+                        <rect key="frame" x="5" y="0.0" width="310" height="290"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="avs-kH-DAY">
+                                <rect key="frame" x="0.0" y="0.0" width="310" height="290"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="avs-kH-DAY" secondAttribute="trailing" id="4GQ-Ik-q4z"/>
+                            <constraint firstAttribute="bottom" secondItem="avs-kH-DAY" secondAttribute="bottom" id="7Kd-Z2-6x5"/>
+                            <constraint firstItem="avs-kH-DAY" firstAttribute="top" secondItem="wBB-os-nsO" secondAttribute="top" id="Nar-t3-iSF"/>
+                            <constraint firstItem="avs-kH-DAY" firstAttribute="leading" secondItem="wBB-os-nsO" secondAttribute="leading" id="R5m-6v-j4a"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wBB-os-nsO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="F8U-my-LMh"/>
+                    <constraint firstItem="wBB-os-nsO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ywj-D1-brM"/>
+                    <constraint firstAttribute="bottom" secondItem="wBB-os-nsO" secondAttribute="bottom" constant="8" id="kbX-gW-5lB"/>
+                    <constraint firstAttribute="trailing" secondItem="wBB-os-nsO" secondAttribute="trailing" constant="5" id="tKs-Rs-Pvq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="postImageView" destination="avs-kH-DAY" id="RWG-wL-w3r"/>
+                <outlet property="view" destination="wBB-os-nsO" id="W1f-tl-7g9"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="60.267857142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

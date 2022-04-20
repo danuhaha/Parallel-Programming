@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -246,7 +246,7 @@
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QL8-6Y-O9i">
-                                                <rect key="frame" x="0.0" y="289.5" width="414" height="275"/>
+                                                <rect key="frame" x="0.0" y="290" width="414" height="275"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="275" id="BWP-lT-VSg"/>
@@ -269,19 +269,19 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCd-aV-ssx">
-                                                <rect key="frame" x="10" y="264" width="394" height="21.5"/>
+                                                <rect key="frame" x="10" y="264.5" width="394" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRP-Yh-OJd">
-                                                <rect key="frame" x="10" y="568.5" width="394" height="21.5"/>
+                                                <rect key="frame" x="10" y="569" width="394" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GpX-zG-0l2">
-                                                <rect key="frame" x="0.0" y="594" width="414" height="135"/>
+                                                <rect key="frame" x="0.0" y="594.5" width="414" height="135"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="135" id="2W1-5S-eR3"/>
@@ -304,7 +304,7 @@
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9s-s5-6AI">
-                                                <rect key="frame" x="10" y="227" width="394" height="22"/>
+                                                <rect key="frame" x="10" y="227" width="394" height="22.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="tintColor" red="0.34509804840000002" green="0.5647059083" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -313,7 +313,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6j-e0-PRQ">
-                                                <rect key="frame" x="10" y="737" width="394" height="30"/>
+                                                <rect key="frame" x="10" y="737.5" width="394" height="30"/>
                                                 <color key="backgroundColor" red="0.34509804840000002" green="0.5647059083" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Qwv-Dg-7S6"/>
@@ -327,7 +327,7 @@
                                                 </state>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s2r-HK-EYf">
-                                                <rect key="frame" x="0.0" y="775" width="414" height="1625"/>
+                                                <rect key="frame" x="0.0" y="775.5" width="414" height="1624.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYf-fU-hLt">
@@ -347,7 +347,6 @@
                                         <constraints>
                                             <constraint firstItem="HYf-fU-hLt" firstAttribute="centerY" secondItem="RyN-eT-d6T" secondAttribute="centerY" multiplier="1.1" id="2qT-yc-wnE"/>
                                             <constraint firstItem="s2r-HK-EYf" firstAttribute="leading" secondItem="9IG-9O-dd0" secondAttribute="leading" id="33e-6O-z3x"/>
-                                            <constraint firstAttribute="height" constant="2400" id="4Xz-Rj-0GU"/>
                                             <constraint firstItem="9wr-1U-NKM" firstAttribute="leading" secondItem="9IG-9O-dd0" secondAttribute="leading" constant="10" id="4dL-1s-3oO"/>
                                             <constraint firstAttribute="trailing" secondItem="dCd-aV-ssx" secondAttribute="trailing" constant="10" id="6HF-PN-uhk"/>
                                             <constraint firstItem="Arw-Q0-Di8" firstAttribute="top" secondItem="9IG-9O-dd0" secondAttribute="top" constant="10" id="79F-bR-OXr"/>
@@ -361,6 +360,7 @@
                                             <constraint firstAttribute="trailing" secondItem="tTe-91-zGf" secondAttribute="trailing" constant="10" id="IIC-N2-Wb1"/>
                                             <constraint firstItem="GpX-zG-0l2" firstAttribute="top" secondItem="eRP-Yh-OJd" secondAttribute="bottom" constant="4" id="LR0-bH-U3H"/>
                                             <constraint firstItem="9wr-1U-NKM" firstAttribute="top" secondItem="FGa-vn-t5z" secondAttribute="bottom" constant="6" id="LgA-YS-szc"/>
+                                            <constraint firstAttribute="height" constant="2400" id="PDg-mA-QgM"/>
                                             <constraint firstAttribute="trailing" secondItem="V9s-s5-6AI" secondAttribute="trailing" constant="10" id="PWG-fM-nhC"/>
                                             <constraint firstItem="s2r-HK-EYf" firstAttribute="top" secondItem="A6j-e0-PRQ" secondAttribute="bottom" constant="8" id="Txz-AS-fc2"/>
                                             <constraint firstItem="Nac-1b-Ms3" firstAttribute="leading" secondItem="FGa-vn-t5z" secondAttribute="trailing" constant="10" id="UTn-p9-afK"/>
@@ -421,6 +421,7 @@
                         <outlet property="nameLabel" destination="RyN-eT-d6T" id="c9A-2B-c8O"/>
                         <outlet property="photosCollectionView" destination="QL8-6Y-O9i" id="K6d-VG-lcg"/>
                         <outlet property="postsTableView" destination="s2r-HK-EYf" id="XAQ-7U-QoP"/>
+                        <outlet property="scrollView" destination="7R0-5D-ep3" id="XEk-Ye-Zd5"/>
                         <outlet property="statusLabel" destination="FaG-6y-zig" id="14t-7U-ljr"/>
                     </connections>
                 </viewController>

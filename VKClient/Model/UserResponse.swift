@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct UserInitialResponse: Codable {
-    let response: UserResponse
+    let response: [UserResponse]
 }
 
 struct UserResponse: Codable {
