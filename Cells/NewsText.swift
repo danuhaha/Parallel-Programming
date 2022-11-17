@@ -21,6 +21,7 @@ class NewsText: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.isHidden = false
         postTextView.isEditable = false
         postTextView.text = nil
     }
@@ -29,6 +30,7 @@ class NewsText: UITableViewCell {
         if post.postText != "" {
             postTextView.text = post.postText
         } else {
+            self.isHidden = true
             postTextView.widthAnchor.constraint(equalToConstant: 0).isActive = true
             postTextView.heightAnchor.constraint(equalToConstant: 0).isActive = true
             postTextView.layoutIfNeeded()

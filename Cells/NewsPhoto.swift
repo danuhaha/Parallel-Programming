@@ -22,6 +22,10 @@ class NewsPhoto: UITableViewCell {
 
     override func prepareForReuse() {
         postImageView.image = nil
+        self.isHidden = false
+        view.widthAnchor.constraint(equalToConstant: 0).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        view.layoutIfNeeded()
     }
 
     func configure(post: Post) {
@@ -31,9 +35,11 @@ class NewsPhoto: UITableViewCell {
             view.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: ratio).isActive = true
             view.layoutIfNeeded()
         } else {
+            self.isHidden = true
             view.widthAnchor.constraint(equalToConstant: 0).isActive = true
             view.heightAnchor.constraint(equalToConstant: 0).isActive = true
             view.layoutIfNeeded()
+
         }
     }
 }

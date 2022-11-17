@@ -65,6 +65,7 @@ struct PostPhoto: Codable {
 
 struct PhotoSizes: Codable {
     let url: String
+    let type: String
 }
 
 struct Comments: Codable{

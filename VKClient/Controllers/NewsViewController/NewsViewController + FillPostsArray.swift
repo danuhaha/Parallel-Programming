@@ -61,7 +61,13 @@ extension NewsViewController {
             if i.attachments == nil || i.attachments![0].photo == nil {
                 self.postsArray.append(Post(group: Group(title: title, avatar: avatar), date: strDate, postText: i.text, postImage: nil, likeCount: i.likes.count, isLiked: isLiked, commentCount: i.comments.count, repostCount: i.reposts.count, viewCount: i.views?.count ?? 0))
             } else {
-                guard let photo = self.getImage(from: i.attachments![0].photo!.sizes[6].url) else { return }
+                var url = ""
+                for j in i.attachments![0].photo!.sizes {
+                    if j.type == "r" {
+                        url = j.url
+                    }
+                }
+                guard let photo = self.getImage(from: url) else { return }
                 self.postsArray.append(Post(group: Group(title: title, avatar: avatar), date: strDate, postText: i.text, postImage: photo, likeCount: i.likes.count, isLiked: isLiked, commentCount: i.comments.count, repostCount: i.reposts.count, viewCount: i.views?.count ?? 0))
 
             }
@@ -70,18 +76,20 @@ extension NewsViewController {
     }
 
     func getPostNewsInitialResponse() {
-
+        
         AF.request("https://api.vk.com/method/newsfeed.get", parameters: [
             "v": "5.131",
             "filters": "post",
-            "access_token": session.token
+            "access_token": self.session.token
             ]).responseData { data in
             guard let data = data.value else { return }
 
             do {
                 let response = try JSONDecoder().decode(PostNewsInitialResponse.self, from: data)
-                self.fillPostsArray(response)
-                self.newsTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.fillPostsArray(response)
+                    self.newsTableView.reloadData()
+                }
             } catch let DecodingError.dataCorrupted(context) {
                 print(context)
             } catch let DecodingError.keyNotFound(key, context) {
@@ -98,6 +106,7 @@ extension NewsViewController {
             }
 
         }
+
     }
 
 }

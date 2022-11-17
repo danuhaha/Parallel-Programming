@@ -11,13 +11,16 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var newsTableView: UITableView!
 
     let session = Session.instance
-    
+
 
     var postsArray = [Post]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getPostNewsInitialResponse()
+        let queue = DispatchQueue.global(qos: .utility)
+        queue.async {
+            self.getPostNewsInitialResponse()
+        }
         newsTableView.delegate = self
         newsTableView.dataSource = self
         newsTableView.register(UINib(nibName: newsHeaderCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsHeaderCell)
