@@ -20,7 +20,7 @@ extension NewsViewController {
         return image
     }
 
-    func fillPostsArray(_ postNewsInitialResponse: PostNewsInitialResponse) {
+    func fillPostsArray(_ postNewsInitialResponse: PostNewsInitialResponse)  {
         //let dispatchGroup = DispatchGroup()
 
         let posts = postNewsInitialResponse.response.items
