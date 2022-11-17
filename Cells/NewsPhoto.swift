@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsPhoto: UITableViewCell  {
+class NewsPhoto: UITableViewCell {
 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var postImageView: UIImageView!
@@ -20,7 +20,7 @@ class NewsPhoto: UITableViewCell  {
         super.setSelected(selected, animated: animated)
     }
 
-    override func prepareForReuse()  {
+    override func prepareForReuse() {
         postImageView.image = nil
         self.isHidden = false 
         view.widthAnchor.constraint(equalToConstant: 0).isActive = true
@@ -28,7 +28,7 @@ class NewsPhoto: UITableViewCell  {
         view.layoutIfNeeded()
     }
 
-    func configure(post: Post)  {
+    func configure(post: Post) {
         if post.postImage != nil {
             postImageView.image = post.postImage
             let ratio = post.postImage!.size.width / post.postImage!.size.height

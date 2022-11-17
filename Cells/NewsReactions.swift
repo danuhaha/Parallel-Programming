@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsReactions: UITableViewCell  {
+class NewsReactions: UITableViewCell {
 
     @IBOutlet weak var likeCounterLabel: UILabel!
     @IBOutlet weak var viewCounterLabel: UILabel!
@@ -26,12 +26,12 @@ class NewsReactions: UITableViewCell  {
         super.setSelected(selected, animated: animated)
     }
 
-    override func prepareForReuse()  {
+    override func prepareForReuse() {
         liked = false
         likeImage = UIImage(systemName: "heart")
     }
 
-    func configure(post: Post)  {
+    func configure(post: Post) {
         liked = post.isLiked
         likeCount = post.likeCount
         if post.isLiked {
@@ -45,7 +45,7 @@ class NewsReactions: UITableViewCell  {
         viewCounterLabel.text = "\(post.viewCount)"
     }
 
-    @IBAction func pressLikeButton(_ sender: Any)  {
+    @IBAction func pressLikeButton(_ sender: Any) {
         guard let button = sender as? UIButton else { return }
         if liked {
             likeImage = UIImage(systemName: "heart")

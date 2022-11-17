@@ -7,14 +7,14 @@
 
 import UIKit
 
-class NewsHeader: UITableViewCell  {
+class NewsHeader: UITableViewCell {
 
     @IBOutlet weak var avatarView: UIView!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
 
-    override func awakeFromNib()  {
+    override func awakeFromNib() {
         super.awakeFromNib()
         avatarImageView.layer.cornerRadius = 25
         avatarView.layer.cornerRadius = 25
@@ -24,14 +24,14 @@ class NewsHeader: UITableViewCell  {
         super.setSelected(selected, animated: animated)
     }
 
-    override func prepareForReuse()  {
+    override func prepareForReuse() {
         super.prepareForReuse()
         avatarImageView.image = nil
         groupNameLabel.text = nil
         dateLabel.text = nil
     }
 
-    func configure(post: Post)  {
+    func configure(post: Post) {
         avatarImageView.image = post.group.avatar
         groupNameLabel.text = post.group.title
         dateLabel.text = post.date

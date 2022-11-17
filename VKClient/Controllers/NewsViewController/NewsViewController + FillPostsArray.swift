@@ -20,7 +20,7 @@ extension NewsViewController {
         return image
     }
 
-    func fillPostsArray(_ postNewsInitialResponse: PostNewsInitialResponse) {
+    func fillPostsArray(_ postNewsInitialResponse: PostNewsInitialResponse)  {
         //let dispatchGroup = DispatchGroup()
 
         let posts = postNewsInitialResponse.response.items
@@ -75,7 +75,7 @@ extension NewsViewController {
         }
     }
 
-    func getPostNewsInitialResponse()  {
+    func getPostNewsInitialResponse() {
         
         AF.request("https://api.vk.com/method/newsfeed.get", parameters: [
             "v": "5.131",
