@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsText: UITableViewCell {
+class NewsText: UITableViewCell  {
 
     @IBOutlet weak var postTextView: UITextView!
 
@@ -19,14 +19,14 @@ class NewsText: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    override func prepareForReuse() {
+    override func prepareForReuse()  {
         super.prepareForReuse()
         self.isHidden = false
         postTextView.isEditable = false
         postTextView.text = nil
     }
 
-    func configure(post: Post) {
+    func configure(post: Post)  {
         if post.postText != "" {
             postTextView.text = post.postText
         } else {

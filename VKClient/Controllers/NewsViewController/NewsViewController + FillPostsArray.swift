@@ -75,7 +75,7 @@ extension NewsViewController {
         }
     }
 
-    func getPostNewsInitialResponse() {
+    func getPostNewsInitialResponse()  {
         
         AF.request("https://api.vk.com/method/newsfeed.get", parameters: [
             "v": "5.131",

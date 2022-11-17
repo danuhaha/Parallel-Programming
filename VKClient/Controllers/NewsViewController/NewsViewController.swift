@@ -13,7 +13,7 @@ class NewsViewController: UIViewController {
     let session = Session.instance
 
 
-    var postsArray = [Post]()
+    var postsArray =  [Post]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,10 @@ class NewsViewController: UIViewController {
         }
         newsTableView.delegate = self
         newsTableView.dataSource = self
-        newsTableView.register(UINib(nibName: newsHeaderCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsHeaderCell)
-        newsTableView.register(UINib(nibName: newsTextCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsTextCell)
-        newsTableView.register(UINib(nibName: newsPhotoCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsPhotoCell)
-        newsTableView.register(UINib(nibName: newsReactionsCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsReactionsCell)
+        newsTableView.register(UINib(nibName:  newsHeaderCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsHeaderCell)
+        newsTableView.register(UINib(nibName:  newsTextCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsTextCell)
+        newsTableView.register(UINib(nibName:  newsPhotoCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsPhotoCell)
+        newsTableView.register(UINib(nibName:  newsReactionsCell, bundle: nil), forCellReuseIdentifier: reuseIdentifierNewsReactionsCell)
         newsTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
 

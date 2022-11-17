@@ -8,7 +8,7 @@
 import UIKit
 
 extension NewsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection  section: Int) -> Int {
         return 4
     }
 
@@ -17,19 +17,19 @@ extension NewsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if indexPath.row == 0  {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierNewsHeaderCell, for: indexPath) as? NewsHeader else { return UITableViewCell() }
             cell.configure(post: postsArray[indexPath.section])
             return cell
-        } else if indexPath.row == 1 {
+        } else if indexPath.row == 1  {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierNewsTextCell, for: indexPath) as? NewsText else { return UITableViewCell() }
             cell.configure(post: postsArray[indexPath.section])
             return cell
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 2  {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierNewsPhotoCell, for: indexPath) as? NewsPhoto else { return UITableViewCell() }
             cell.configure(post: postsArray[indexPath.section])
             return cell
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 3  {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierNewsReactionsCell, for: indexPath) as? NewsReactions else { return UITableViewCell() }
             cell.configure(post: postsArray[indexPath.section])
             return cell
