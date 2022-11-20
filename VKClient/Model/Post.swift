@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Post {
+struct Post  {
     var group = Group()
     var date = String()
     var postText: String?

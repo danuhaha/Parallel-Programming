@@ -20,7 +20,7 @@ extension NewsViewController {
         return image
     }
 
-    func fillPostsArray(_ postNewsInitialResponse: PostNewsInitialResponse)  {
+    func fillPostsArray(_ postNewsInitialResponse: PostNewsInitialResponse) {
         //let dispatchGroup = DispatchGroup()
 
         let posts = postNewsInitialResponse.response.items
@@ -75,11 +75,11 @@ extension NewsViewController {
         }
     }
 
-    func getPostNewsInitialResponse() {
+    func getPostNewsInitialResponse()  {
         
-        AF.request("https://api.vk.com/method/newsfeed.get", parameters: [
+        AF.request("https://api.vk.com/method/newsfeed.get",  parameters: [
             "v": "5.131",
-            "filters": "post",
+            "filters": "post" ,
             "access_token": self.session.token
             ]).responseData { data in
             guard let data = data.value else { return }
@@ -87,7 +87,7 @@ extension NewsViewController {
             do {
                 let response = try JSONDecoder().decode(PostNewsInitialResponse.self, from: data)
                 DispatchQueue.main.async {
-                    self.fillPostsArray(response)
+                    self.fillPostsArray(response )
                     self.newsTableView.reloadData()
                 }
             } catch let DecodingError.dataCorrupted(context) {

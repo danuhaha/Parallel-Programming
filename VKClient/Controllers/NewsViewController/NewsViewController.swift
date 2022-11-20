@@ -19,7 +19,7 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         let queue = DispatchQueue.global(qos: .utility)
         queue.async {
-             self.getPostNewsInitialResponse()
+             self.getPostNewsInitialResponse( )
         }
         newsTableView.delegate = self
         newsTableView.dataSource = self
