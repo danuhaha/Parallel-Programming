@@ -22,7 +22,7 @@ class NewsPhoto: UITableViewCell {
 
     override func prepareForReuse() {
         postImageView.image = nil
-        self.isHidden = false
+        self.isHidden = false 
         view.widthAnchor.constraint(equalToConstant: 0).isActive = true
         view.heightAnchor.constraint(equalToConstant: 0).isActive = true
         view.layoutIfNeeded()

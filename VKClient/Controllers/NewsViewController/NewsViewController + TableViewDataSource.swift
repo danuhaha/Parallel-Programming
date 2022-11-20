@@ -12,7 +12,7 @@ extension NewsViewController: UITableViewDataSource {
         return 4
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func  numberOfSections(in tableView: UITableView) -> Int {
         return postsArray.count
     }
 
